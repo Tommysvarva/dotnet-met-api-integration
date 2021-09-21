@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{44B1997E-2052-4A82-842A-6ABF7BB9676C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MET.Api.Integration", "MET.Api.Integration\MET.Api.Integration.csproj", "{5527B90F-E481-4726-9704-5421771B9677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Met.Api.Integration.Tests", "Met.Api.Integration.Tests\Met.Api.Integration.Tests.csproj", "{4F0DB9A1-6137-4183-9C0D-BE73D8C02AAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5527B90F-E481-4726-9704-5421771B9677} = {44B1997E-2052-4A82-842A-6ABF7BB9676C}
+		{4F0DB9A1-6137-4183-9C0D-BE73D8C02AAD} = {44B1997E-2052-4A82-842A-6ABF7BB9676C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5527B90F-E481-4726-9704-5421771B9677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5527B90F-E481-4726-9704-5421771B9677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5527B90F-E481-4726-9704-5421771B9677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5527B90F-E481-4726-9704-5421771B9677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F0DB9A1-6137-4183-9C0D-BE73D8C02AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F0DB9A1-6137-4183-9C0D-BE73D8C02AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F0DB9A1-6137-4183-9C0D-BE73D8C02AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F0DB9A1-6137-4183-9C0D-BE73D8C02AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
