@@ -19,7 +19,7 @@ namespace MET.Api.Integration.Api
         }
 
         [HttpGet]
-        public async Task<string> GetWeatherForecast(LocationDto location)
+        public async Task<string> GetWeatherForecast(string longitude, string latitude)
         {
             //TODO: Validate lat and lon
             //var forecast = await _metService.GetLocationForecast("123","123");
