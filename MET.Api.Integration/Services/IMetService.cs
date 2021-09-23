@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using MET.Api.Integration.Models;
+using System.Threading.Tasks;
 
 namespace MET.Api.Integration.Services
 {
     public interface IMetService
     {
-        Task<string> GetLocationForecast(string lat, string lon);
+        Task<ForecastResponseModel> GetLocationForecast(string latitude, string longitude);
     }
 }
