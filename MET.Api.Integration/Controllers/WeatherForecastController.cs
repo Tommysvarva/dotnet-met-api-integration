@@ -12,18 +12,22 @@ namespace MET.Api.Integration.Api
     [Route("api/v1/weatherforecast")]
     public class WeatherForecastController : Controller
     {
-        //public IMetService _metService{ get; set; }
-        public WeatherForecastController()
+        public IMetService _metService { get; set; }
+        public WeatherForecastController(IMetService metService)
         {
-            //_metService = metService;
+            _metService = metService;
         }
 
         [HttpGet]
-        public async Task<string> GetWeatherForecast(string longitude, string latitude)
+        [Route("locationforecast/complete")]
+        public async Task<ActionResult<string>> LocationForecastComplete(string latitude, string longitude)
         {
-            //TODO: Validate lat and lon
-            //var forecast = await _metService.GetLocationForecast("123","123");
-            return ("123");
+            if(string.IsNullOrEmpty(latitude) || string.IsNullOrEmpty(longitude))
+            {
+                return BadRequest();
+            }
+            var weatherForecast = await _metService.GetLocationForecast(latitude, longitude);
+            return weatherForecast;
         }
     }
 }
