@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using MET.Api.Integration.Services;
 using Microsoft.AspNetCore.Builder;
@@ -25,6 +26,13 @@ namespace MET.Api.Integration
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpClient("met-api", config => {
+                var productValue = new ProductInfoHeaderValue("dotnet-met-api", "1.0");
+                var commentValue = new ProductInfoHeaderValue("(+tase.contact@gmail.com)");
+
+                config.DefaultRequestHeaders.UserAgent.Add(productValue);
+                config.DefaultRequestHeaders.UserAgent.Add(commentValue);
+            });
             services.AddTransient<IMetService, MetService>();
         }
 
