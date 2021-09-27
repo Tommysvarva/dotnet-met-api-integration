@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace MET.Api.Integration.Models
 {
+
+    //generated from quicktype.io
     public partial class ForecastResponseModel
     {
         [JsonProperty("type")]

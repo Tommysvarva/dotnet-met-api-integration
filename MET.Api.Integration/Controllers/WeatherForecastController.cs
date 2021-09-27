@@ -1,4 +1,5 @@
-﻿using MET.Api.Integration.Models.Dtos;
+﻿using MET.Api.Integration.Models;
+using MET.Api.Integration.Models.Dtos;
 using MET.Api.Integration.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,13 +21,19 @@ namespace MET.Api.Integration.Api
 
         [HttpGet]
         [Route("locationforecast/complete")]
-        public async Task<ActionResult<string>> LocationForecastComplete(string latitude, string longitude)
+        public async Task<ActionResult<ForecastResponseModel>> LocationForecastComplete(string latitude, string longitude)
         {
             if(string.IsNullOrEmpty(latitude) || string.IsNullOrEmpty(longitude))
             {
                 return BadRequest();
             }
+
             var weatherForecast = await _metService.GetLocationForecast(latitude, longitude);
+            if(weatherForecast == null)
+            {
+                return NotFound();
+            }
+
             return weatherForecast;
         }
     }
