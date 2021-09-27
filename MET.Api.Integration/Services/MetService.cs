@@ -17,23 +17,29 @@ namespace MET.Api.Integration.Services
         }
         public async Task<ForecastResponseModel> GetLocationForecast(string latitude, string longitude)
         {
-            var forecast = new ForecastResponseModel();
             try
             {
-                var client = _client.CreateClient("met-api");
+                var client = _client.CreateClient();
+
+                var productValue = new ProductInfoHeaderValue("dotnet-met-api", "1.0");
+                var commentValue = new ProductInfoHeaderValue("(+tase.contact@gmail.com)");
+                client.DefaultRequestHeaders.UserAgent.Add(productValue);
+                client.DefaultRequestHeaders.UserAgent.Add(commentValue);
+
                 var url = $"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={latitude}&lon={longitude}";
                 var response = await client.GetStringAsync(url);
                 var forecastResponse = JsonConvert.DeserializeObject<ForecastResponseModel>(response);
-                if(forecastResponse!= null)
-                { 
-                    forecast = forecastResponse;
+                if (forecastResponse != null)
+                {
+                    return forecastResponse;
                 }
             }
             catch (Exception e)
             {
                 //TODO: Log and handle exception
             }
-            return forecast;
+
+            return null;
         }
     }
 }
